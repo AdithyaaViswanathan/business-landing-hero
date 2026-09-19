@@ -1,4 +1,5 @@
 # Roadmap
 
-- [ ] Replace the website logo with a transparent-background version
-- [ ] Add LeafLife Instagram and LinkedIn links (waiting for exact profile URLs)
+- [x] Replace the website logo with a transparent-background version
+- [x] Add the LeafLife LinkedIn link
+- [ ] Add the LeafLife Instagram link (waiting for the exact profile URL)
