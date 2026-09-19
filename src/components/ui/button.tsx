@@ -1,20 +1,41 @@
+import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import type { ButtonHTMLAttributes } from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  asChild?: boolean;
-};
+export const buttonVariants = cva(
+  "inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground",
+        destructive: "bg-destructive text-destructive-foreground",
+        outline: "border border-input bg-background hover:bg-secondary",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-muted",
+        ghost: "hover:bg-secondary",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-9 px-3",
+        lg: "h-12 px-8",
+        icon: "size-10",
+      },
+    },
+    defaultVariants: { variant: "default", size: "default" },
+  },
+);
 
-export function Button({ asChild, className, ...props }: ButtonProps) {
-  const Component = asChild ? Slot : "button";
-  return (
-    <Component
-      className={cn(
-        "inline-flex min-h-12 items-center justify-center bg-primary px-7 py-3 text-sm font-semibold uppercase text-primary-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50",
-        className,
-      )}
-      {...props}
-    />
-  );
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
 }
+
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ asChild = false, className, variant, size, ...props }, ref) => {
+    const Component = asChild ? Slot : "button";
+    return <Component ref={ref} className={cn(buttonVariants({ variant, size, className }))} {...props} />;
+  },
+);
+Button.displayName = "Button";
