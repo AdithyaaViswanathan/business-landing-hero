@@ -3,10 +3,12 @@ import { ArrowDown, ArrowRight, Mail, MapPin, Menu, Phone, X } from "lucide-reac
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import heroAsset from "@/assets/leaflife-coconut-hero.jpg.asset.json";
-import freshCoconuts from "@/assets/fresh-coconuts.jpg";
-import copra from "@/assets/copra.jpg";
-import cocopeat from "@/assets/cocopeat.jpg";
-import firewood from "@/assets/firewood.jpg";
+import freshCoconutsAsset from "@/assets/fresh-coconuts.jpg.asset.json";
+import copraAsset from "@/assets/copra.jpg.asset.json";
+import cocopeat2kgAsset from "@/assets/cocopeat-2kg.jpg.asset.json";
+import cocopeat5kgAsset from "@/assets/cocopeat-5kg.jpg.asset.json";
+import firewoodAsset from "@/assets/firewood.jpg.asset.json";
+import logoAsset from "@/assets/logo.png.asset.json";
 import grove from "@/assets/pollachi-grove.jpg";
 
 export const Route = createFileRoute("/")({
@@ -24,10 +26,11 @@ export const Route = createFileRoute("/")({
 });
 
 const products = [
-  { name: "Fresh Coconuts", origin: "Pollachi origin", image: freshCoconuts, description: "Fresh Pollachi coconuts supplied in bulk for domestic distribution and international export.", detail: "Bulk supply", supply: "Domestic & export" },
-  { name: "Pollachi Copra", origin: "Kangayam quality", image: copra, description: "Carefully sourced dried coconut for commercial oil processing and wholesale requirements.", detail: "Milling grade", supply: "Wholesale volumes" },
-  { name: "Cocopeat", origin: "Export ready", image: cocopeat, description: "Compressed blocks in 2 kg and 5 kg formats, plus loose cocopeat powder for horticulture.", detail: "Blocks & powder", supply: "Custom quantities" },
-  { name: "Firewood", origin: "Domestic supply", image: firewood, description: "Reliable bulk firewood sourcing for commercial and industrial buyers across India.", detail: "Bulk tonnage", supply: "Domestic only" },
+  { name: "Fresh Coconuts", origin: "Pollachi origin", image: freshCoconutsAsset.url, description: "Fresh Pollachi coconuts supplied in bulk for domestic distribution and international export.", detail: "Bulk supply", supply: "Domestic & export" },
+  { name: "Pollachi Copra", origin: "Kangayam quality", image: copraAsset.url, description: "Carefully sourced dried coconut for commercial oil processing and wholesale requirements.", detail: "Milling grade", supply: "Wholesale volumes" },
+  { name: "Cocopeat Blocks — 2 kg", origin: "Export ready", image: cocopeat2kgAsset.url, description: "Compact 2 kg compressed cocopeat blocks for nurseries, horticulture, and growing media requirements.", detail: "2 kg blocks", supply: "Custom quantities" },
+  { name: "Cocopeat Blocks — 5 kg", origin: "Export ready", image: cocopeat5kgAsset.url, description: "High-density 5 kg compressed cocopeat blocks prepared for commercial cultivation and export supply.", detail: "5 kg blocks", supply: "Custom quantities" },
+  { name: "Firewood", origin: "Domestic supply", image: firewoodAsset.url, description: "Reliable bulk firewood sourcing for commercial and industrial buyers across India.", detail: "Bulk tonnage", supply: "Domestic only" },
 ];
 
 function Index() {
@@ -40,7 +43,7 @@ function Index() {
         <div className="absolute inset-0 bg-primary/55" />
         <header className="absolute inset-x-0 top-0 z-20 border-b border-primary-foreground/20 px-5 py-5 md:px-12">
           <div className="mx-auto flex max-w-7xl items-center justify-between">
-            <a href="#home" className="font-display text-2xl text-primary-foreground" aria-label="Leaflife Agro home">Leaflife Agro</a>
+            <a href="#home" className="flex items-center" aria-label="Leaflife Agro home"><img src={logoAsset.url} alt="LeafLife Organics" className="h-16 w-auto object-contain md:h-20" /></a>
             <nav className="hidden items-center gap-9 text-sm font-medium uppercase text-primary-foreground md:flex">
               <a href="#catalogue" className="transition-colors hover:text-accent">Products</a>
               <a href="#origin" className="transition-colors hover:text-accent">Origin</a>
@@ -96,7 +99,7 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-border px-5 py-10 md:px-12"><div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between"><div><p className="font-display text-2xl">Leaflife Agro</p><p className="mt-1 text-xs uppercase text-muted-foreground">A unit of Sree Amman Industries</p></div><p className="text-xs text-muted-foreground">Pollachi · Coimbatore · Kangayam</p><p className="text-xs text-muted-foreground">© 2026 Leaflife Agro. All rights reserved.</p></div></footer>
+      <footer className="border-t border-border px-5 py-10 md:px-12"><div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between"><div><img src={logoAsset.url} alt="LeafLife Organics" className="h-20 w-auto object-contain object-left" /><p className="mt-2 text-xs uppercase text-muted-foreground">A unit of Sree Amman Industries</p></div><p className="text-xs text-muted-foreground">Pollachi · Coimbatore · Kangayam</p><p className="text-xs text-muted-foreground">© 2026 Leaflife Agro. All rights reserved.</p></div></footer>
     </main>
   );
 }
