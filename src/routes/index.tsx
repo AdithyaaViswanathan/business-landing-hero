@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, ArrowRight, Linkedin, Mail, MapPin, Menu, Phone, X } from "lucide-react";
+import { ArrowDown, ArrowRight, Instagram, Linkedin, Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import heroAsset from "@/assets/leaflife-coconut-hero.jpg.asset.json";
@@ -27,12 +27,90 @@ export const Route = createFileRoute("/")({
 });
 
 const products = [
-  { name: "Fresh Coconuts", origin: "Pollachi origin", image: freshCoconutsAsset.url, description: "Fresh Pollachi coconuts supplied in bulk for domestic distribution and international export.", detail: "Bulk supply", supply: "Domestic & export" },
-  { name: "Pollachi Copra", origin: "Kangayam quality", image: copraAsset.url, description: "Carefully sourced dried coconut for commercial oil processing and wholesale requirements.", detail: "Milling grade", supply: "Wholesale volumes" },
-  { name: "Cocopeat Blocks — 2 kg", origin: "Export ready", image: cocopeat2kg, description: "Compact 2 kg compressed cocopeat blocks for nurseries, horticulture, and growing media requirements.", detail: "2 kg blocks", supply: "Custom quantities" },
-  { name: "Cocopeat Blocks — 5 kg", origin: "Export ready", image: cocopeat5kgAsset.url, description: "High-density 5 kg compressed cocopeat blocks prepared for commercial cultivation and export supply.", detail: "5 kg blocks", supply: "Custom quantities" },
-  { name: "Firewood", origin: "Domestic supply", image: firewoodAsset.url, description: "Reliable bulk firewood sourcing for commercial and industrial buyers across India.", detail: "Bulk tonnage", supply: "Domestic only" },
-  { name: "All Other Agro Products", origin: "Custom sourcing", image: allAgroProductsAsset.url, description: "Bulk sourcing of spices and other agricultural products based on buyer specifications and market requirements.", detail: "Bulk supply", supply: "Domestic & export" },
+  {
+    name: "Fresh Coconuts",
+    origin: "Pollachi origin",
+    image: freshCoconutsAsset.url,
+    tagline: "Hand-graded coconuts from the Pollachi belt.",
+    body: "Fresh coconuts sourced directly from growers in the Pollachi coconut belt and dispatched in clean, uniform batches. We coordinate plucking, grading and loading so wholesalers and exporters receive consistent size, maturity and husk condition, lot after lot.",
+    uses: ["Wholesale markets", "Retail supply", "Export consignments", "Coconut processors"],
+    specs: [
+      { label: "Maturity", value: "Tender or mature" },
+      { label: "Grading", value: "By size at source" },
+      { label: "Packing", value: "Gunny bags or loose" },
+      { label: "Supply", value: "Recurring weekly lots" },
+    ],
+  },
+  {
+    name: "Pollachi Copra",
+    origin: "Kangayam quality",
+    image: copraAsset.url,
+    tagline: "Sun-dried copra cleaned before dispatch.",
+    body: "Copra collected through the Kangayam trading hub, sorted and cleaned before it leaves the yard. Suitable for oil mills and commercial processors that need dependable quality and predictable volumes through the season.",
+    uses: ["Oil extraction", "Edible oil mills", "Commercial processors", "Wholesale trading"],
+    specs: [
+      { label: "Grade", value: "Milling & edible" },
+      { label: "Sorting", value: "Hand-cleaned at source" },
+      { label: "Packing", value: "Jute bags or bulk" },
+      { label: "Supply", value: "Truck & container loads" },
+    ],
+  },
+  {
+    name: "Cocopeat Blocks — 2 kg",
+    origin: "Export ready",
+    image: cocopeat2kg,
+    tagline: "Compact blocks for nurseries and growing media.",
+    body: "Compressed 2 kg cocopeat blocks made from coconut husk pith, ideal where smaller, easy-to-handle packs suit the workflow. Popular with nurseries and growers blending their own potting mix, and available in quantities that match your production cycle.",
+    uses: ["Nursery trays", "Potting mix", "Hydroponic media", "Terrace gardening"],
+    specs: [
+      { label: "Weight", value: "2 kg compressed" },
+      { label: "Form", value: "Washed or unwashed" },
+      { label: "Packing", value: "Shrink-wrapped blocks" },
+      { label: "Supply", value: "Palletised on request" },
+    ],
+  },
+  {
+    name: "Cocopeat Blocks — 5 kg",
+    origin: "Export ready",
+    image: cocopeat5kgAsset.url,
+    tagline: "High-density blocks for commercial cultivation.",
+    body: "Denser 5 kg blocks built for commercial growers and export consignments where handling efficiency matters. The compressed format saves container space and rehydrates quickly into a light, moisture-retentive growing medium.",
+    uses: ["Commercial cultivation", "Greenhouse beds", "Container nurseries", "Export consignments"],
+    specs: [
+      { label: "Weight", value: "5 kg compressed" },
+      { label: "Form", value: "Washed or unwashed" },
+      { label: "Packing", value: "Shrink-wrapped blocks" },
+      { label: "Supply", value: "Palletised on request" },
+    ],
+  },
+  {
+    name: "Firewood",
+    origin: "Domestic supply",
+    image: firewoodAsset.url,
+    tagline: "Dependable bulk firewood for commercial users.",
+    body: "Bulk firewood arranged for commercial and industrial buyers across India, with collection and loading handled so deliveries stay on schedule. We work to the length, dryness and tonnage your operation actually burns.",
+    uses: ["Industrial boilers", "Bakeries & kilns", "Hospitality", "Commercial heating"],
+    specs: [
+      { label: "Form", value: "Logs or split" },
+      { label: "Grading", value: "By length at source" },
+      { label: "Packing", value: "Loose or bundled" },
+      { label: "Supply", value: "Domestic bulk only" },
+    ],
+  },
+  {
+    name: "All Other Agro Products",
+    origin: "Custom sourcing",
+    image: allAgroProductsAsset.url,
+    tagline: "Spices and beyond, sourced to your specification.",
+    body: "If it grows in Tamil Nadu, we can help you buy it. From spices and pulses to seasonal field crops, we source against your specification, arrange quality checks and consolidate consignments for both domestic buyers and overseas importers.",
+    uses: ["Spices & masala trade", "Pulses & grains", "Seasonal field crops", "Buying-house supply"],
+    specs: [
+      { label: "Range", value: "Spices, grains & more" },
+      { label: "Grading", value: "Buyer specification" },
+      { label: "Packing", value: "Export standard" },
+      { label: "Supply", value: "Domestic & export bulk" },
+    ],
+  },
 ];
 
 function Index() {
@@ -71,12 +149,26 @@ function Index() {
           <p className="max-w-md text-sm leading-relaxed text-muted-foreground">Reliable bulk sourcing, flexible quantities, and professional support for domestic and international buyers.</p>
         </div>
         <div className="grid border-l border-t border-border md:grid-cols-2">
-          {products.map((product) => <article key={product.name} className="border-b border-r border-border p-5 md:p-8">
-            <div className="overflow-hidden bg-muted"><img src={product.image} alt={product.name} loading="lazy" width={1200} height={912} className="aspect-[4/3] w-full object-cover transition-transform duration-700 hover:scale-[1.03]" /></div>
-            <div className="mt-7 flex items-start justify-between gap-4"><h3 className="font-display text-3xl">{product.name}</h3><span className="pt-1 text-right text-xs font-medium uppercase text-secondary-foreground">{product.origin}</span></div>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">{product.description}</p>
-            <dl className="mt-6 border-t border-border pt-5 text-xs font-medium uppercase"><div className="flex justify-between gap-4"><dt>{product.detail}</dt><dd className="text-accent">{product.supply}</dd></div></dl>
-          </article>)}
+          {products.map((product, index) => (
+            <article key={product.name} className="group flex flex-col border-b border-r border-border">
+              <div className="relative overflow-hidden bg-muted">
+                <img src={product.image} alt={product.name} loading="lazy" width={1200} height={900} className="aspect-[4/3] w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]" />
+                <span className="absolute left-0 top-0 bg-background/90 px-4 py-2 font-display text-xl italic">{String(index + 1).padStart(2, "0")}</span>
+                <span className="absolute bottom-0 right-0 bg-accent px-5 py-2.5 text-[11px] font-semibold uppercase tracking-wider text-accent-foreground">{product.origin}</span>
+              </div>
+              <div className="flex flex-1 flex-col p-7 md:p-9">
+                <h3 className="font-display text-4xl leading-tight md:text-[2.6rem]">{product.name}</h3>
+                <p className="mt-3 font-display text-lg italic text-secondary-foreground">{product.tagline}</p>
+                <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">{product.body}</p>
+                <div className="mt-7">
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-accent">Best suited for</p>
+                  <ul className="mt-3 flex flex-wrap gap-2">{product.uses.map((use) => <li key={use} className="border border-border px-3 py-1.5 text-[11px] uppercase tracking-wide text-muted-foreground">{use}</li>)}</ul>
+                </div>
+                <dl className="mt-7 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6">{product.specs.map((spec) => <div key={spec.label}><dt className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{spec.label}</dt><dd className="mt-1 text-sm text-foreground">{spec.value}</dd></div>)}</dl>
+                <a href="#quote" className="mt-auto inline-flex items-center gap-2 pt-8 text-xs font-semibold uppercase tracking-wider text-secondary-foreground transition-colors hover:text-accent">Enquire about this product <ArrowRight className="size-4" /></a>
+              </div>
+            </article>
+          ))}
         </div>
         <div className="mt-8 flex flex-col justify-between gap-5 border border-border p-7 md:flex-row md:items-center"><div><h3 className="font-display text-2xl">Need another agricultural product?</h3><p className="mt-2 text-sm text-muted-foreground">Tell us your specifications and we will explore custom bulk sourcing.</p></div><Button asChild variant="outline"><a href="#quote">Discuss your requirement</a></Button></div>
       </section>
@@ -92,7 +184,7 @@ function Index() {
 
       <section id="quote" className="mx-auto max-w-7xl px-5 py-20 md:px-12 md:py-28">
         <div className="grid gap-12 bg-card p-7 shadow-sm md:grid-cols-[0.75fr_1.25fr] md:p-14">
-          <div><p className="text-xs font-semibold uppercase text-accent">Get in touch</p><h2 className="mt-4 font-display text-5xl">Request a Quote</h2><p className="mt-5 leading-relaxed text-muted-foreground">Share your product, volume, and delivery requirements. We typically respond within one business day.</p><div className="mt-9 space-y-5 text-sm"><a className="flex items-start gap-3" href="tel:+918072323123"><Phone className="mt-0.5 size-4 text-accent" />+91 807 232 3123</a><a className="flex items-start gap-3 break-all" href="mailto:leaflife.international@gmail.com"><Mail className="mt-0.5 size-4 shrink-0 text-accent" />leaflife.international@gmail.com</a><p className="flex items-start gap-3"><MapPin className="mt-0.5 size-4 shrink-0 text-accent" />Coimbatore & Kangayam, Tamil Nadu, India</p><a className="flex items-center gap-3 transition-colors hover:text-accent" href="https://www.linkedin.com/company/leaflife-agro/" target="_blank" rel="noreferrer"><Linkedin className="size-4 text-accent" />LeafLife Agro on LinkedIn</a></div><Button asChild className="mt-8"><a href="https://wa.me/918072323123?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20your%20agricultural%20products." target="_blank" rel="noreferrer">Chat on WhatsApp</a></Button></div>
+          <div><p className="text-xs font-semibold uppercase text-accent">Get in touch</p><h2 className="mt-4 font-display text-5xl">Request a Quote</h2><p className="mt-5 leading-relaxed text-muted-foreground">Share your product, volume, and delivery requirements. We typically respond within one business day.</p><div className="mt-9 space-y-5 text-sm"><a className="flex items-start gap-3" href="tel:+918072323123"><Phone className="mt-0.5 size-4 text-accent" />+91 807 232 3123</a><a className="flex items-start gap-3 break-all" href="mailto:leaflife.international@gmail.com"><Mail className="mt-0.5 size-4 shrink-0 text-accent" />leaflife.international@gmail.com</a><p className="flex items-start gap-3"><MapPin className="mt-0.5 size-4 shrink-0 text-accent" />Coimbatore & Kangayam, Tamil Nadu, India</p><a className="flex items-center gap-3 transition-colors hover:text-accent" href="https://www.linkedin.com/company/leaflife-agro/" target="_blank" rel="noreferrer"><Linkedin className="size-4 text-accent" />LeafLife Agro on LinkedIn</a><a className="flex items-center gap-3 transition-colors hover:text-accent" href="https://www.instagram.com/leaflife.agro/" target="_blank" rel="noreferrer"><Instagram className="size-4 text-accent" />@leaflife.agro on Instagram</a></div><Button asChild className="mt-8"><a href="https://wa.me/918072323123?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20your%20agricultural%20products." target="_blank" rel="noreferrer">Chat on WhatsApp</a></Button></div>
           <form action="https://formsubmit.co/leaflife.international@gmail.com" method="POST" className="grid gap-6 md:grid-cols-2"><input type="hidden" name="_captcha" value="false" /><input type="hidden" name="_subject" value="New Quote Request — Leaflife Agro Website" />
             <Field label="Your name" name="name" required /><Field label="Company name" name="company" /><Field label="Email address" name="email" type="email" required /><Field label="Phone number" name="phone" type="tel" required />
             <label className="grid gap-2 text-xs font-semibold uppercase">Product interest<select name="product" required className="h-12 border-b border-input bg-background px-3 text-sm font-normal text-foreground outline-none focus:border-accent"><option value="">Select a product</option><option>Fresh Pollachi Coconuts</option><option>Pollachi Copra</option><option>Cocopeat Blocks — 2 kg</option><option>Cocopeat Blocks — 5 kg</option><option>Cocopeat Powder</option><option>Firewood</option><option>Custom Agro Sourcing</option></select></label><Field label="Estimated quantity" name="quantity" />
@@ -101,7 +193,7 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-border px-5 py-10 md:px-12"><div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between"><div><img src={logo} alt="LeafLife Organics" className="h-20 w-auto object-contain object-left" /><p className="mt-2 text-xs uppercase text-muted-foreground">A unit of Sree Amman Industries</p></div><p className="text-xs text-muted-foreground">Pollachi · Coimbatore · Kangayam</p><div className="flex items-center gap-5"><a href="https://www.linkedin.com/company/leaflife-agro/" target="_blank" rel="noreferrer" aria-label="LeafLife Agro on LinkedIn" className="text-muted-foreground transition-colors hover:text-accent"><Linkedin className="size-5" /></a><p className="text-xs text-muted-foreground">© 2026 Leaflife Agro. All rights reserved.</p></div></div></footer>
+      <footer className="border-t border-border px-5 py-10 md:px-12"><div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between"><div><img src={logo} alt="LeafLife Organics" className="h-20 w-auto object-contain object-left" /><p className="mt-2 text-xs uppercase text-muted-foreground">A unit of Sree Amman Industries</p></div><p className="text-xs text-muted-foreground">Pollachi · Coimbatore · Kangayam</p><div className="flex items-center gap-5"><a href="https://www.linkedin.com/company/leaflife-agro/" target="_blank" rel="noreferrer" aria-label="LeafLife Agro on LinkedIn" className="text-muted-foreground transition-colors hover:text-accent"><Linkedin className="size-5" /></a><a href="https://www.instagram.com/leaflife.agro/" target="_blank" rel="noreferrer" aria-label="LeafLife Agro on Instagram" className="text-muted-foreground transition-colors hover:text-accent"><Instagram className="size-5" /></a><p className="text-xs text-muted-foreground">© 2026 Leaflife Agro. All rights reserved.</p></div></div></footer>
     </main>
   );
 }
