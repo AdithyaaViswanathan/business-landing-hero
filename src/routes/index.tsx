@@ -125,27 +125,27 @@ function Index() {
           <div className="mx-auto flex max-w-7xl items-center justify-between">
             <a href="#home" className="flex items-center" aria-label="Leaflife Agro home"><img src={logo} alt="LeafLife Organics" className="h-16 w-auto object-contain md:h-20" /></a>
             <nav className="hidden items-center gap-9 text-sm font-medium uppercase text-primary-foreground md:flex">
-              <a href="#catalogue" className="transition-colors hover:text-accent">Products</a>
-              <a href="#origin" className="transition-colors hover:text-accent">Origin</a>
-              <a href="#markets" className="transition-colors hover:text-accent">Markets</a>
-              <a href="#quote" className="transition-colors hover:text-accent">Get a quote</a>
+              <a href="#catalogue" className="transition-colors hover:text-accent-bright">Products</a>
+              <a href="#origin" className="transition-colors hover:text-accent-bright">Origin</a>
+              <a href="#markets" className="transition-colors hover:text-accent-bright">Markets</a>
+              <a href="#quote" className="transition-colors hover:text-accent-bright">Get a quote</a>
             </nav>
             <button onClick={() => setMenuOpen(!menuOpen)} className="grid size-11 place-items-center text-primary-foreground md:hidden" aria-label={menuOpen ? "Close menu" : "Open menu"}>{menuOpen ? <X /> : <Menu />}</button>
           </div>
           {menuOpen && <nav className="mx-auto mt-5 flex max-w-7xl flex-col gap-4 border-t border-primary-foreground/20 pt-5 text-sm font-medium uppercase text-primary-foreground md:hidden"><a href="#catalogue" onClick={() => setMenuOpen(false)}>Products</a><a href="#origin" onClick={() => setMenuOpen(false)}>Origin</a><a href="#markets" onClick={() => setMenuOpen(false)}>Markets</a><a href="#quote" onClick={() => setMenuOpen(false)}>Get a quote</a></nav>}
         </header>
         <div className="relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-6 pb-20 pt-28 text-center">
-          <p className="mb-4 animate-reveal text-sm font-medium uppercase text-accent">Tamil Nadu · India</p>
+          <p className="mb-4 animate-reveal text-sm font-medium uppercase text-accent-bright">Tamil Nadu · India</p>
           <h1 className="animate-reveal font-display text-6xl leading-[1.1] text-primary-foreground md:text-8xl lg:text-9xl">Leaflife Agro</h1>
           <p className="mt-7 max-w-2xl animate-reveal text-lg font-light leading-relaxed text-primary-foreground/85 md:text-xl">Premium agricultural commodities sourced from the heart of Pollachi for buyers across India and worldwide.</p>
           <Button asChild size="lg" className="mt-10 animate-reveal"><a href="#quote">Request a quote <ArrowRight className="ml-3 size-4" /></a></Button>
         </div>
-        <a href="#catalogue" aria-label="View products" className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2 text-accent"><ArrowDown className="size-7 animate-bounce" /></a>
+        <a href="#catalogue" aria-label="View products" className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2 text-accent-bright"><ArrowDown className="size-7 animate-bounce" /></a>
       </section>
 
       <section id="catalogue" className="mx-auto max-w-7xl px-5 py-20 md:px-12 md:py-28">
         <div className="mb-14 flex flex-col gap-6 border-b border-border pb-8 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-2xl"><p className="mb-3 text-xs font-semibold uppercase text-accent">Product catalogue</p><h2 className="font-display text-5xl italic leading-[1.12] md:text-6xl">The Product Ledger</h2></div>
+          <div className="max-w-2xl"><p className="mb-3 text-xs font-semibold uppercase text-accent-deep">Product catalogue</p><h2 className="font-display text-5xl italic leading-[1.12] md:text-6xl">The Product Ledger</h2></div>
           <p className="max-w-md text-sm leading-relaxed text-muted-foreground">Reliable bulk sourcing, flexible quantities, and professional support for domestic and international buyers.</p>
         </div>
         <div className="grid border-l border-t border-border md:grid-cols-3">
@@ -158,7 +158,7 @@ function Index() {
               <div className="flex flex-1 flex-col p-6 md:p-7">
                 <h3 className="font-display text-2xl leading-snug">{product.name}</h3>
                 <p className="mt-2 font-display italic text-secondary-foreground">{product.tagline}</p>
-                <a href="#quote" className="mt-auto inline-flex items-center gap-2 pt-6 text-xs font-semibold uppercase tracking-wider text-secondary-foreground transition-colors hover:text-accent">Enquire <ArrowRight className="size-4" /></a>
+                <a href="#quote" className="mt-auto inline-flex items-center gap-2 pt-6 text-xs font-semibold uppercase tracking-wider text-secondary-foreground transition-colors hover:text-accent-deep">Enquire <ArrowRight className="size-4" /></a>
               </div>
             </article>
           ))}
