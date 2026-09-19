@@ -1,24 +1,106 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ArrowDown, ArrowRight, Mail, MapPin, Menu, Phone, X } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import heroAsset from "@/assets/leaflife-coconut-hero.jpg.asset.json";
+import freshCoconuts from "@/assets/fresh-coconuts.jpg";
+import copra from "@/assets/copra.jpg";
+import cocopeat from "@/assets/cocopeat.jpg";
+import firewood from "@/assets/firewood.jpg";
+import grove from "@/assets/pollachi-grove.jpg";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Leaflife Agro — Premium Agricultural Products" },
+      { name: "description", content: "Bulk coconut, copra, cocopeat and agricultural supply from Tamil Nadu for domestic buyers and global importers." },
+      { property: "og:title", content: "Leaflife Agro — Premium Agricultural Products" },
+      { property: "og:description", content: "Reliable bulk agricultural sourcing from Pollachi, Coimbatore and Kangayam." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+const products = [
+  { name: "Fresh Coconuts", origin: "Pollachi origin", image: freshCoconuts, description: "Fresh Pollachi coconuts supplied in bulk for domestic distribution and international export.", detail: "Bulk supply", supply: "Domestic & export" },
+  { name: "Pollachi Copra", origin: "Kangayam quality", image: copra, description: "Carefully sourced dried coconut for commercial oil processing and wholesale requirements.", detail: "Milling grade", supply: "Wholesale volumes" },
+  { name: "Cocopeat", origin: "Export ready", image: cocopeat, description: "Compressed blocks in 2 kg and 5 kg formats, plus loose cocopeat powder for horticulture.", detail: "Blocks & powder", supply: "Custom quantities" },
+  { name: "Firewood", origin: "Domestic supply", image: firewood, description: "Reliable bulk firewood sourcing for commercial and industrial buyers across India.", detail: "Bulk tonnage", supply: "Domestic only" },
+];
+
 function Index() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="min-h-screen overflow-x-hidden bg-background text-foreground">
+      <section id="home" className="relative min-h-[100svh] w-full overflow-hidden bg-primary">
+        <img src={heroAsset.url} alt="Coconuts growing on a palm tree" className="absolute inset-0 size-full animate-scale-in object-cover object-center" />
+        <div className="absolute inset-0 bg-primary/55" />
+        <header className="absolute inset-x-0 top-0 z-20 border-b border-primary-foreground/20 px-5 py-5 md:px-12">
+          <div className="mx-auto flex max-w-7xl items-center justify-between">
+            <a href="#home" className="font-display text-2xl text-primary-foreground" aria-label="Leaflife Agro home">Leaflife Agro</a>
+            <nav className="hidden items-center gap-9 text-sm font-medium uppercase text-primary-foreground md:flex">
+              <a href="#catalogue" className="transition-colors hover:text-accent">Products</a>
+              <a href="#origin" className="transition-colors hover:text-accent">Origin</a>
+              <a href="#markets" className="transition-colors hover:text-accent">Markets</a>
+              <a href="#quote" className="transition-colors hover:text-accent">Get a quote</a>
+            </nav>
+            <button onClick={() => setMenuOpen(!menuOpen)} className="grid size-11 place-items-center text-primary-foreground md:hidden" aria-label={menuOpen ? "Close menu" : "Open menu"}>{menuOpen ? <X /> : <Menu />}</button>
+          </div>
+          {menuOpen && <nav className="mx-auto mt-5 flex max-w-7xl flex-col gap-4 border-t border-primary-foreground/20 pt-5 text-sm font-medium uppercase text-primary-foreground md:hidden"><a href="#catalogue" onClick={() => setMenuOpen(false)}>Products</a><a href="#origin" onClick={() => setMenuOpen(false)}>Origin</a><a href="#markets" onClick={() => setMenuOpen(false)}>Markets</a><a href="#quote" onClick={() => setMenuOpen(false)}>Get a quote</a></nav>}
+        </header>
+        <div className="relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-6 pb-20 pt-28 text-center">
+          <p className="mb-4 animate-reveal text-sm font-medium uppercase text-accent">Tamil Nadu · India</p>
+          <h1 className="animate-reveal font-display text-6xl leading-none text-primary-foreground md:text-8xl lg:text-9xl">Leaflife Agro</h1>
+          <p className="mt-7 max-w-2xl animate-reveal text-lg font-light leading-relaxed text-primary-foreground/85 md:text-xl">Premium agricultural commodities sourced from the heart of Pollachi for buyers across India and worldwide.</p>
+          <Button asChild size="lg" className="mt-10 animate-reveal"><a href="#quote">Request a quote <ArrowRight className="ml-3 size-4" /></a></Button>
+        </div>
+        <a href="#catalogue" aria-label="View products" className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2 text-accent"><ArrowDown className="size-7 animate-bounce" /></a>
+      </section>
+
+      <section id="catalogue" className="mx-auto max-w-7xl px-5 py-20 md:px-12 md:py-28">
+        <div className="mb-14 flex flex-col gap-6 border-b border-border pb-8 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-2xl"><p className="mb-3 text-xs font-semibold uppercase text-accent">Product catalogue</p><h2 className="font-display text-5xl italic md:text-6xl">The Product Ledger</h2></div>
+          <p className="max-w-md text-sm leading-relaxed text-muted-foreground">Reliable bulk sourcing, flexible quantities, and professional support for domestic and international buyers.</p>
+        </div>
+        <div className="grid border-l border-t border-border md:grid-cols-2">
+          {products.map((product) => <article key={product.name} className="border-b border-r border-border p-5 md:p-8">
+            <div className="overflow-hidden bg-muted"><img src={product.image} alt={product.name} loading="lazy" width={1200} height={912} className="aspect-[4/3] w-full object-cover transition-transform duration-700 hover:scale-[1.03]" /></div>
+            <div className="mt-7 flex items-start justify-between gap-4"><h3 className="font-display text-3xl">{product.name}</h3><span className="pt-1 text-right text-xs font-medium uppercase text-secondary-foreground">{product.origin}</span></div>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">{product.description}</p>
+            <dl className="mt-6 border-t border-border pt-5 text-xs font-medium uppercase"><div className="flex justify-between gap-4"><dt>{product.detail}</dt><dd className="text-accent">{product.supply}</dd></div></dl>
+          </article>)}
+        </div>
+        <div className="mt-8 flex flex-col justify-between gap-5 border border-border p-7 md:flex-row md:items-center"><div><h3 className="font-display text-2xl">Need another agricultural product?</h3><p className="mt-2 text-sm text-muted-foreground">Tell us your specifications and we will explore custom bulk sourcing.</p></div><Button asChild variant="outline"><a href="#quote">Discuss your requirement</a></Button></div>
+      </section>
+
+      <section id="origin" className="bg-primary py-20 text-primary-foreground md:py-28">
+        <div className="mx-auto grid max-w-7xl gap-14 px-5 md:grid-cols-2 md:items-center md:px-12">
+          <div><p className="mb-4 text-xs font-semibold uppercase text-accent">Our sourcing region</p><h2 className="font-display text-5xl italic md:text-6xl">Rooted in the soil of Tamil Nadu.</h2><div className="mt-8 space-y-5 text-lg font-light leading-relaxed text-primary-foreground/75"><p>Leaflife Agro is the agricultural products division of Sree Amman Industries, operating from Coimbatore, Kangayam, and the premier Pollachi coconut belt.</p><p>Our local sourcing network helps business buyers access consistent quality, dependable volume, and coordinated supply.</p></div><div className="mt-10 grid grid-cols-3 border-l border-accent/40 pl-5"><div><strong className="font-display text-2xl text-accent">Pollachi</strong><span className="mt-1 block text-xs uppercase text-primary-foreground/55">Coconut belt</span></div><div><strong className="font-display text-2xl text-accent">Kangayam</strong><span className="mt-1 block text-xs uppercase text-primary-foreground/55">Copra hub</span></div><div><strong className="font-display text-2xl text-accent">Coimbatore</strong><span className="mt-1 block text-xs uppercase text-primary-foreground/55">Trade base</span></div></div></div>
+          <div className="relative"><img src={grove} alt="Coconut groves in Tamil Nadu" loading="lazy" width={1200} height={1504} className="aspect-[4/5] w-full object-cover" /><div className="absolute bottom-0 left-0 bg-accent px-6 py-4 font-display text-xl text-accent-foreground">The Pollachi advantage</div></div>
+        </div>
+      </section>
+
+      <section id="markets" className="border-b border-border bg-background py-20 md:py-24"><div className="mx-auto max-w-7xl px-5 md:px-12"><div className="grid gap-px bg-border md:grid-cols-3"><div className="bg-background p-8"><p className="text-xs uppercase text-accent">01</p><h3 className="mt-5 font-display text-2xl">Bulk B2B Supply</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Commercial quantities for wholesalers, processors, and distributors.</p></div><div className="bg-background p-8"><p className="text-xs uppercase text-accent">02</p><h3 className="mt-5 font-display text-2xl">Domestic Distribution</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Coordinated supply to buyers across India from Tamil Nadu.</p></div><div className="bg-background p-8"><p className="text-xs uppercase text-accent">03</p><h3 className="mt-5 font-display text-2xl">International Enquiries</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Responsive support for importers evaluating Indian agricultural supply.</p></div></div></div></section>
+
+      <section id="quote" className="mx-auto max-w-7xl px-5 py-20 md:px-12 md:py-28">
+        <div className="grid gap-12 bg-card p-7 shadow-sm md:grid-cols-[0.75fr_1.25fr] md:p-14">
+          <div><p className="text-xs font-semibold uppercase text-accent">Get in touch</p><h2 className="mt-4 font-display text-5xl">Request a Quote</h2><p className="mt-5 leading-relaxed text-muted-foreground">Share your product, volume, and delivery requirements. We typically respond within one business day.</p><div className="mt-9 space-y-5 text-sm"><a className="flex items-start gap-3" href="tel:+918072323123"><Phone className="mt-0.5 size-4 text-accent" />+91 807 232 3123</a><a className="flex items-start gap-3 break-all" href="mailto:leaflife.international@gmail.com"><Mail className="mt-0.5 size-4 shrink-0 text-accent" />leaflife.international@gmail.com</a><p className="flex items-start gap-3"><MapPin className="mt-0.5 size-4 shrink-0 text-accent" />Coimbatore & Kangayam, Tamil Nadu, India</p></div><Button asChild className="mt-8"><a href="https://wa.me/918072323123?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20your%20agricultural%20products." target="_blank" rel="noreferrer">Chat on WhatsApp</a></Button></div>
+          <form action="https://formsubmit.co/leaflife.international@gmail.com" method="POST" className="grid gap-6 md:grid-cols-2"><input type="hidden" name="_captcha" value="false" /><input type="hidden" name="_subject" value="New Quote Request — Leaflife Agro Website" />
+            <Field label="Your name" name="name" required /><Field label="Company name" name="company" /><Field label="Email address" name="email" type="email" required /><Field label="Phone number" name="phone" type="tel" required />
+            <label className="grid gap-2 text-xs font-semibold uppercase">Product interest<select name="product" required className="h-12 border-b border-input bg-background px-3 text-sm font-normal text-foreground outline-none focus:border-accent"><option value="">Select a product</option><option>Fresh Pollachi Coconuts</option><option>Pollachi Copra</option><option>Cocopeat Blocks — 2 kg</option><option>Cocopeat Blocks — 5 kg</option><option>Cocopeat Powder</option><option>Firewood</option><option>Custom Agro Sourcing</option></select></label><Field label="Estimated quantity" name="quantity" />
+            <label className="grid gap-2 text-xs font-semibold uppercase md:col-span-2">Additional details<textarea name="message" rows={4} className="border-b border-input bg-background p-3 text-sm font-normal text-foreground outline-none focus:border-accent" placeholder="Delivery location, frequency, specifications..." /></label><div className="md:col-span-2"><Button type="submit" size="lg">Submit quote request <ArrowRight className="ml-3 size-4" /></Button></div>
+          </form>
+        </div>
+      </section>
+
+      <footer className="border-t border-border px-5 py-10 md:px-12"><div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between"><div><p className="font-display text-2xl">Leaflife Agro</p><p className="mt-1 text-xs uppercase text-muted-foreground">A unit of Sree Amman Industries</p></div><p className="text-xs text-muted-foreground">Pollachi · Coimbatore · Kangayam</p><p className="text-xs text-muted-foreground">© 2026 Leaflife Agro. All rights reserved.</p></div></footer>
+    </main>
   );
+}
+
+function Field({ label, name, type = "text", required = false }: { label: string; name: string; type?: string; required?: boolean }) {
+  return <label className="grid gap-2 text-xs font-semibold uppercase">{label}<input name={name} type={type} required={required} className="h-12 border-b border-input bg-background px-3 text-sm font-normal text-foreground outline-none focus:border-accent" /></label>;
 }
