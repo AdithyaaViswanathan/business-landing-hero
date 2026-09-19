@@ -9,7 +9,7 @@ import cocopeat2kg from "@/assets/cocopeat-2kg-matched.jpg";
 import cocopeat5kgAsset from "@/assets/cocopeat-5kg.jpg.asset.json";
 import firewoodAsset from "@/assets/firewood.jpg.asset.json";
 import allAgroProductsAsset from "@/assets/all-agro-products.jpg.asset.json";
-import logoAsset from "@/assets/logo.png.asset.json";
+import logo from "@/assets/leaflife-logo-transparent.png";
 import grove from "@/assets/pollachi-grove.jpg";
 
 export const Route = createFileRoute("/")({
@@ -45,7 +45,7 @@ function Index() {
         <div className="absolute inset-0 bg-primary/55" />
         <header className="absolute inset-x-0 top-0 z-20 border-b border-primary-foreground/20 px-5 py-5 md:px-12">
           <div className="mx-auto flex max-w-7xl items-center justify-between">
-            <a href="#home" className="flex items-center" aria-label="Leaflife Agro home"><img src={logoAsset.url} alt="LeafLife Organics" className="h-16 w-auto object-contain md:h-20" /></a>
+            <a href="#home" className="flex items-center" aria-label="Leaflife Agro home"><img src={logo} alt="LeafLife Organics" className="h-16 w-auto object-contain md:h-20" /></a>
             <nav className="hidden items-center gap-9 text-sm font-medium uppercase text-primary-foreground md:flex">
               <a href="#catalogue" className="transition-colors hover:text-accent">Products</a>
               <a href="#origin" className="transition-colors hover:text-accent">Origin</a>
@@ -101,7 +101,7 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-border px-5 py-10 md:px-12"><div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between"><div><img src={logoAsset.url} alt="LeafLife Organics" className="h-20 w-auto object-contain object-left" /><p className="mt-2 text-xs uppercase text-muted-foreground">A unit of Sree Amman Industries</p></div><p className="text-xs text-muted-foreground">Pollachi · Coimbatore · Kangayam</p><p className="text-xs text-muted-foreground">© 2026 Leaflife Agro. All rights reserved.</p></div></footer>
+      <footer className="border-t border-border px-5 py-10 md:px-12"><div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between"><div><img src={logo} alt="LeafLife Organics" className="h-20 w-auto object-contain object-left" /><p className="mt-2 text-xs uppercase text-muted-foreground">A unit of Sree Amman Industries</p></div><p className="text-xs text-muted-foreground">Pollachi · Coimbatore · Kangayam</p><p className="text-xs text-muted-foreground">© 2026 Leaflife Agro. All rights reserved.</p></div></footer>
     </main>
   );
 }
