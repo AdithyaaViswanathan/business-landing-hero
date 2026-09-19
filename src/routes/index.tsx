@@ -148,24 +148,17 @@ function Index() {
           <div className="max-w-2xl"><p className="mb-3 text-xs font-semibold uppercase text-accent">Product catalogue</p><h2 className="font-display text-5xl italic leading-[1.12] md:text-6xl">The Product Ledger</h2></div>
           <p className="max-w-md text-sm leading-relaxed text-muted-foreground">Reliable bulk sourcing, flexible quantities, and professional support for domestic and international buyers.</p>
         </div>
-        <div className="grid border-l border-t border-border md:grid-cols-2">
-          {products.map((product, index) => (
+        <div className="grid border-l border-t border-border md:grid-cols-3">
+          {products.map((product) => (
             <article key={product.name} className="group flex flex-col border-b border-r border-border">
               <div className="relative overflow-hidden bg-muted">
-                <img src={product.image} alt={product.name} loading="lazy" width={1200} height={900} className="aspect-[4/3] w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]" />
-                <span className="absolute left-0 top-0 bg-background/90 px-4 py-2 font-display text-xl italic">{String(index + 1).padStart(2, "0")}</span>
-                <span className="absolute bottom-0 right-0 bg-accent px-5 py-2.5 text-[11px] font-semibold uppercase tracking-wider text-accent-foreground">{product.origin}</span>
+                <img src={product.image} alt={product.name} loading="lazy" width={900} height={900} className="aspect-square w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]" />
+                <span className="absolute bottom-0 right-0 bg-accent px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-accent-foreground">{product.origin}</span>
               </div>
-              <div className="flex flex-1 flex-col p-7 md:p-9">
-                <h3 className="font-display text-4xl leading-tight md:text-[2.6rem]">{product.name}</h3>
-                <p className="mt-3 font-display text-lg italic text-secondary-foreground">{product.tagline}</p>
-                <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">{product.body}</p>
-                <div className="mt-7">
-                  <p className="text-[11px] font-semibold uppercase tracking-wider text-accent">Best suited for</p>
-                  <ul className="mt-3 flex flex-wrap gap-2">{product.uses.map((use) => <li key={use} className="border border-border px-3 py-1.5 text-[11px] uppercase tracking-wide text-muted-foreground">{use}</li>)}</ul>
-                </div>
-                <dl className="mt-7 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6">{product.specs.map((spec) => <div key={spec.label}><dt className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{spec.label}</dt><dd className="mt-1 text-sm text-foreground">{spec.value}</dd></div>)}</dl>
-                <a href="#quote" className="mt-auto inline-flex items-center gap-2 pt-8 text-xs font-semibold uppercase tracking-wider text-secondary-foreground transition-colors hover:text-accent">Enquire about this product <ArrowRight className="size-4" /></a>
+              <div className="flex flex-1 flex-col p-6 md:p-7">
+                <h3 className="font-display text-2xl leading-snug">{product.name}</h3>
+                <p className="mt-2 font-display italic text-secondary-foreground">{product.tagline}</p>
+                <a href="#quote" className="mt-auto inline-flex items-center gap-2 pt-6 text-xs font-semibold uppercase tracking-wider text-secondary-foreground transition-colors hover:text-accent">Enquire <ArrowRight className="size-4" /></a>
               </div>
             </article>
           ))}
