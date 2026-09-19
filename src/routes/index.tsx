@@ -5,9 +5,10 @@ import { Button } from "@/components/ui/button";
 import heroAsset from "@/assets/leaflife-coconut-hero.jpg.asset.json";
 import freshCoconutsAsset from "@/assets/fresh-coconuts.jpg.asset.json";
 import copraAsset from "@/assets/copra.jpg.asset.json";
-import cocopeat2kgAsset from "@/assets/cocopeat-2kg.jpg.asset.json";
+import cocopeat2kg from "@/assets/cocopeat-2kg-matched.jpg";
 import cocopeat5kgAsset from "@/assets/cocopeat-5kg.jpg.asset.json";
 import firewoodAsset from "@/assets/firewood.jpg.asset.json";
+import allAgroProductsAsset from "@/assets/all-agro-products.jpg.asset.json";
 import logoAsset from "@/assets/logo.png.asset.json";
 import grove from "@/assets/pollachi-grove.jpg";
 
@@ -28,9 +29,10 @@ export const Route = createFileRoute("/")({
 const products = [
   { name: "Fresh Coconuts", origin: "Pollachi origin", image: freshCoconutsAsset.url, description: "Fresh Pollachi coconuts supplied in bulk for domestic distribution and international export.", detail: "Bulk supply", supply: "Domestic & export" },
   { name: "Pollachi Copra", origin: "Kangayam quality", image: copraAsset.url, description: "Carefully sourced dried coconut for commercial oil processing and wholesale requirements.", detail: "Milling grade", supply: "Wholesale volumes" },
-  { name: "Cocopeat Blocks — 2 kg", origin: "Export ready", image: cocopeat2kgAsset.url, description: "Compact 2 kg compressed cocopeat blocks for nurseries, horticulture, and growing media requirements.", detail: "2 kg blocks", supply: "Custom quantities" },
+  { name: "Cocopeat Blocks — 2 kg", origin: "Export ready", image: cocopeat2kg, description: "Compact 2 kg compressed cocopeat blocks for nurseries, horticulture, and growing media requirements.", detail: "2 kg blocks", supply: "Custom quantities" },
   { name: "Cocopeat Blocks — 5 kg", origin: "Export ready", image: cocopeat5kgAsset.url, description: "High-density 5 kg compressed cocopeat blocks prepared for commercial cultivation and export supply.", detail: "5 kg blocks", supply: "Custom quantities" },
   { name: "Firewood", origin: "Domestic supply", image: firewoodAsset.url, description: "Reliable bulk firewood sourcing for commercial and industrial buyers across India.", detail: "Bulk tonnage", supply: "Domestic only" },
+  { name: "All Other Agro Products", origin: "Custom sourcing", image: allAgroProductsAsset.url, description: "Bulk sourcing of spices and other agricultural products based on buyer specifications and market requirements.", detail: "Bulk supply", supply: "Domestic & export" },
 ];
 
 function Index() {
