@@ -42,6 +42,8 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-deep: var(--accent-deep);
+  --color-accent-bright: var(--accent-bright);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -79,6 +81,9 @@
   --muted-foreground: oklch(0.47 0.04 154);
   --accent: oklch(0.76692 0.14625 79.559);
   --accent-foreground: oklch(0.29756 0.05143 159.699);
+  /* Readable variants: deep gold for text on cream, bright gold for text on dark green */
+  --accent-deep: oklch(0.52 0.11 78);
+  --accent-bright: oklch(0.87 0.15 88);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.29756 0.05143 159.699 / 16%);
