@@ -151,6 +151,15 @@
     scroll-behavior: smooth;
   }
 
+  /* Large display headings render at line-height 1 by default, which slices the
+     descenders off DM Serif Display. Keep a little breathing room as the base. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1.12;
+  }
+
   ::selection {
     background: var(--accent);
     color: var(--accent-foreground);

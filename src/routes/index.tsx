@@ -136,7 +136,7 @@ function Index() {
         </header>
         <div className="relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-6 pb-20 pt-28 text-center">
           <p className="mb-4 animate-reveal text-sm font-medium uppercase text-accent">Tamil Nadu · India</p>
-          <h1 className="animate-reveal font-display text-6xl leading-none text-primary-foreground md:text-8xl lg:text-9xl">Leaflife Agro</h1>
+          <h1 className="animate-reveal font-display text-6xl leading-[1.1] text-primary-foreground md:text-8xl lg:text-9xl">Leaflife Agro</h1>
           <p className="mt-7 max-w-2xl animate-reveal text-lg font-light leading-relaxed text-primary-foreground/85 md:text-xl">Premium agricultural commodities sourced from the heart of Pollachi for buyers across India and worldwide.</p>
           <Button asChild size="lg" className="mt-10 animate-reveal"><a href="#quote">Request a quote <ArrowRight className="ml-3 size-4" /></a></Button>
         </div>
