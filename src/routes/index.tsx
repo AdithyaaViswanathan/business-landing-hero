@@ -57,7 +57,6 @@ function Index() {
           {menuOpen && <nav className="mx-auto mt-5 flex max-w-7xl flex-col gap-4 border-t border-primary-foreground/20 pt-5 text-sm font-medium uppercase text-primary-foreground md:hidden"><a href="#catalogue" onClick={() => setMenuOpen(false)}>Products</a><a href="#origin" onClick={() => setMenuOpen(false)}>Origin</a><a href="#markets" onClick={() => setMenuOpen(false)}>Markets</a><a href="#quote" onClick={() => setMenuOpen(false)}>Get a quote</a></nav>}
         </header>
         <div className="relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-6 pb-20 pt-28 text-center">
-          <img src={logo} alt="LeafLife Organics" className="mb-6 w-60 animate-reveal object-contain drop-shadow-xl md:w-80" />
           <p className="mb-4 animate-reveal text-sm font-medium uppercase text-accent">Tamil Nadu · India</p>
           <h1 className="animate-reveal font-display text-6xl leading-none text-primary-foreground md:text-8xl lg:text-9xl">Leaflife Agro</h1>
           <p className="mt-7 max-w-2xl animate-reveal text-lg font-light leading-relaxed text-primary-foreground/85 md:text-xl">Premium agricultural commodities sourced from the heart of Pollachi for buyers across India and worldwide.</p>
